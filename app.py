@@ -3,7 +3,7 @@ import datetime
 
 app = Flask(__name__)
 
-@app.route('/gettime', methods=['GET'])
+@app.route('/', methods=['GET'])
 def hello():
     now = datetime.datetime.now()
     kwargs = dict()
