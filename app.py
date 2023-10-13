@@ -8,7 +8,7 @@ def hello():
     now = datetime.datetime.now()
     kwargs = dict()
     type = 'student'
-    student = {'name':'Abihit','age':24,'type':'student'}
+    student = {'name':'Abhijit','age':24,'type':'student'}
     teacher = {'name':'Rick','age':22,'type':'teacher'}
     entities = {'student':student,'teacher':teacher}
     
