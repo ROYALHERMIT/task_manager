@@ -3,13 +3,13 @@ import datetime
 
 app = Flask(__name__)
 
-@app.route('/gettime', methods=['GET'])
+@app.route('/', methods=['GET'])
 def hello():
     now = datetime.datetime.now()
     kwargs = dict()
     type = 'student'
     student = {'name':'Abhijit','age':24,'type':'student'}
-    teacher = {'name':'Rick','age':22,'type':'teacher'}
+    teacher = {'name':'Rick da','age':22,'type':'teacher'}
     entities = {'student':student,'teacher':teacher}
     
     
