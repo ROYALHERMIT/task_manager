@@ -1,0 +1,23 @@
+.searred{
+    border-radius: 50px 0 0 50px;
+    width: 25rem;
+}
+
+.searredb{
+    border-radius: 0 50px 50px 0;
+    width: 10rem;
+}
+
+.btn-outline-success{
+    border-color: #495057 !important;
+    color: #dee2e6 !important;
+}
+
+.proimg{
+    width: 20%;
+    border-radius: 50%;
+}
+
+.dropicon{
+    margin-bottom: -8px !important;
+}
