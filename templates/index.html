@@ -13,21 +13,12 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid">
-      <div class="d-flex justify-content-center ">
-        <form class="d-flex  " role="search">
-          <input class="form-control searred" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success searredb" type="submit">Search</button>
-        </form>
-      </div>
-      <div class="dropdown d-flex justify-content-end">
-        <a href="#">
-          <img class="proimg" src="https://m.media-amazon.com/images/I/01Kv-W2ysOL._SY600_.png" alt="">
-        </a>
-      </div>
-    </div>
-  </nav>
+<!-- Include the component.js file -->
+<script src="{{ url_for('static', filename='component/component.js') }}"></script>
+
+
+<!-- Call the createnavbar function -->
+<app-navbar></app-navbar>
 
   <div>
     <div class="area"></div>

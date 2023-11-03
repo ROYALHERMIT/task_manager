@@ -1,8 +1,7 @@
 import mysql.connector
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 import datetime
-
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 db_config = {
     'host': 'localhost',
     'port': 3307,  
