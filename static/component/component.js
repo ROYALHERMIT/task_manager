@@ -95,13 +95,7 @@ class Sidebar extends HTMLElement {
     
       
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-      <style>
-      .sid_mrg{
-        margin-top: 3.8rem;
-      }
-      
-      
-      
+    <style>
       @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300');
       .fa-2x {
       font-size: 2em;
@@ -154,13 +148,13 @@ class Sidebar extends HTMLElement {
       border-collapse:collapse;
       border-spacing:0;
       color:#999;
-       font-family: arial;
+      font-family: arial;
       font-size: 14px;
       text-decoration:none;
       -webkit-transform:translateZ(0) scale(1,1);
       -webkit-transition:all .1s linear;
       transition:all .1s linear;
-        
+      
       }
       
       .main-menu .nav-icon {
@@ -178,7 +172,7 @@ class Sidebar extends HTMLElement {
       display:table-cell;
       vertical-align:middle;
       width:190px;
-        font-family: 'Titillium Web', sans-serif;
+      font-family: 'Titillium Web', sans-serif;
       }
       
       .main-menu>ul.logout {
@@ -224,17 +218,19 @@ class Sidebar extends HTMLElement {
       height: 100%;
       }
       @font-face {
-        font-family: 'Titillium Web';
-        font-style: normal;
-        font-weight: 300;
-        src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url('http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff') format('woff');
+      font-family: 'Titillium Web';
+      font-style: normal;
+      font-weight: 300;
+      src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url('http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff') format('woff');
       }
       
-      
-      </style>
+      .sid_mrg{
+      padding-top: 4rem;
+      }
+    </style>
 
       
-      <div>
+    <div class="bg-dark" data-bs-theme="dark">
     <div class="area"></div>
     <nav class="main-menu sid_mrg">
       <ul>
