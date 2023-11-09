@@ -109,13 +109,13 @@ class Sidebar extends HTMLElement {
       vertical-align: middle;
       font-size:20px;
       }
-      
-      
+
+
       .main-menu:hover,nav.main-menu.expanded {
       width:250px;
       overflow:visible;
       }
-      
+
       .main-menu {
       background:#212121;
       border-right:1px solid #e5e5e5;
@@ -131,17 +131,17 @@ class Sidebar extends HTMLElement {
       -webkit-transform:translateZ(0) scale(1,1);
       z-index:1000;
       }
-      
+
       .main-menu>ul {
       margin:7px 0;
       }
-      
+
       .main-menu li {
       position:relative;
       display:block;
       width:250px;
       }
-      
+
       .main-menu li>a {
       position:relative;
       display:table;
@@ -154,9 +154,13 @@ class Sidebar extends HTMLElement {
       -webkit-transform:translateZ(0) scale(1,1);
       -webkit-transition:all .1s linear;
       transition:all .1s linear;
+<<<<<<< Updated upstream
       
+=======
+
+>>>>>>> Stashed changes
       }
-      
+
       .main-menu .nav-icon {
       position:relative;
       display:table-cell;
@@ -166,7 +170,7 @@ class Sidebar extends HTMLElement {
       vertical-align:middle;
       font-size:18px;
       }
-      
+
       .main-menu .nav-text {
       position:relative;
       display:table-cell;
@@ -174,26 +178,26 @@ class Sidebar extends HTMLElement {
       width:190px;
       font-family: 'Titillium Web', sans-serif;
       }
-      
+
       .main-menu>ul.logout {
       position:absolute;
       left:0;
       bottom:0;
       }
-      
+
       .no-touch .scrollable.hover {
       overflow-y:hidden;
       }
-      
+
       .no-touch .scrollable.hover:hover {
       overflow-y:auto;
       overflow:visible;
       }
-      
+
       a:hover,a:focus {
       text-decoration:none;
       }
-      
+
       nav {
       -webkit-user-select:none;
       -moz-user-select:none;
@@ -201,7 +205,7 @@ class Sidebar extends HTMLElement {
       -o-user-select:none;
       user-select:none;
       }
-      
+
       nav ul,nav li {
       outline:0;
       margin:0;
@@ -222,11 +226,21 @@ class Sidebar extends HTMLElement {
       font-style: normal;
       font-weight: 300;
       src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url('http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff') format('woff');
+<<<<<<< Updated upstream
       }
       
       .sid_mrg{
       padding-top: 4rem;
       }
+=======
+      }
+
+      .sid_mrg{
+      padding-top: 4rem;
+      }
+      
+      
+>>>>>>> Stashed changes
     </style>
 
       
