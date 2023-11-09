@@ -5,7 +5,7 @@ import datetime
 app = Flask(__name__)
 db_config = {
     'host': 'localhost',
-    'port': 3307,  
+    'port': 3306,  
     'user': 'root',
     'password': 'root',
     'database': 'DB_PROBO',
