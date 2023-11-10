@@ -117,7 +117,7 @@ class Sidebar extends HTMLElement {
       }
 
       .main-menu {
-      background:#212121;
+      background:#202529;
       border-right:1px solid #e5e5e5;
       position:absolute;
       top:0;
@@ -230,7 +230,7 @@ class Sidebar extends HTMLElement {
       }
       
       .sid_mrg{
-      padding-top: 4rem;
+        margin-top: 3.6rem;
       }
 =======
       }
