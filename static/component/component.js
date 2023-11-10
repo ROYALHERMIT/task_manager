@@ -154,11 +154,6 @@ class Sidebar extends HTMLElement {
       -webkit-transform:translateZ(0) scale(1,1);
       -webkit-transition:all .1s linear;
       transition:all .1s linear;
-<<<<<<< Updated upstream
-      
-=======
-
->>>>>>> Stashed changes
       }
 
       .main-menu .nav-icon {
@@ -226,21 +221,13 @@ class Sidebar extends HTMLElement {
       font-style: normal;
       font-weight: 300;
       src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url('http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff') format('woff');
-<<<<<<< Updated upstream
+
       }
       
       .sid_mrg{
       padding-top: 4rem;
-      }
-=======
       }
 
-      .sid_mrg{
-      padding-top: 4rem;
-      }
-      
-      
->>>>>>> Stashed changes
     </style>
 
       
