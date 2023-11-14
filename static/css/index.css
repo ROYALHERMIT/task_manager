@@ -2,3 +2,34 @@ body{
     background-color: #292d30;
     color: white;
 }
+
+.card{
+    border-color: beige;
+    background-color: #292d30;
+    color: white;
+}
+.cred{
+    border-radius: 50px ;
+    width: 35rem;
+}
+
+.ud{
+    text-decoration: none;
+    color: white;
+}
+
+.marg{
+    margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 1800px){
+    .cm{
+        margin-left: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .marg{
+        margin-bottom: 1rem;
+    }
+}

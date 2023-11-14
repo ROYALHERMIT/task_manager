@@ -25,8 +25,70 @@
   <sidebar-navbar></sidebar-navbar>
   <!--cart start-->
   <div class="container">
-    <p class="d-flex justify-content-center mt-5">Saturday, November 11</p>
-    <h2 class="d-flex justify-content-center">Good morning, abhi</h2>
+    <div class="mb-3">
+      <p class="d-flex justify-content-center mt-5">{{ day_of_week }}, {{ month }} {{ day }}</p>
+      <h2 class="d-flex justify-content-center">Good {{ time_of_day }}, abhi</h2>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="card cred">
+        <div class="card-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-3 border-end">
+                <p>My week</p>
+              </div>
+              <div class="col-5">
+                <i class="fa fa-check d-inline"></i>
+                <p class="d-inline">0</p>
+                <p class="d-inline">tasks completed</p>
+              </div>
+              <div class="col-4">
+                <i class="fa fa-user-group d-inline"></i>
+                <p class="d-inline">0</p>
+                <p class="d-inline">collaborators</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3 cm">
+      <div class="col-md-6 ">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Projests</h4>
+            <div class="row">
+              <div class="col-md-6 marg">
+                <a href="#" class="ud">
+                  <i class="fa fa-square-plus fa-2xl d-inline"></i>
+                  <p class="card-text ms-2 d-inline">Create project</p>
+                </a>
+              </div>
+              <div class="col-md-6 marg">
+                <a href="#" class="ud">
+                  <i class="fa fa-chart-bar fa-2xl d-inline"></i>
+                  <p class="card-text ms-2 d-inline">Project name</p>
+                </a>
+              </div>
+              <div class="col-md-6 marg">
+                <a href="#" class="ud">
+                  <i class="fa fa-chart-bar fa-2xl d-inline"></i>
+                  <p class="card-text ms-2 d-inline">Project name</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 ">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Projests</h4>
+            
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
