@@ -6,6 +6,7 @@ db_config = {
     'host': 'localhost',
     'port': 3307,  
     'user': 'root',
+    'password':'root',
     'database': 'DB_PROBO',
 }
 
@@ -21,21 +22,20 @@ conn = create_db_connection()
 cursor = conn.cursor()
 @app.route('/',methods=['GET'])
 def hello():
-    current_datetime = datetime.now()
-    month = current_datetime.strftime('%B')  # Full month name
-    day = current_datetime.day
-    day_of_week = current_datetime.strftime('%A')
-    time_of_day = get_time_of_day(current_datetime.hour)
+    now = datetime.now()
+    formatted_date = now.strftime("%A, %B %d")
+    current_hour = now.hour
+    time_category = get_time_category(current_hour)
 
-    return render_template('index.html', month=month, day=day,  day_of_week=day_of_week, time_of_day=time_of_day)
+    return render_template('index.html', formatted_date=formatted_date,time_category=time_category)
+def get_time_category(current_hour):
 
-def get_time_of_day(hour):
-    if 6 <= hour < 12:
-        return 'morning'
-    elif 12 <= hour < 18:
-        return 'afternoon'
+    if 5 <= current_hour < 12:
+        return "Morning"
+    elif 12 <= current_hour < 18:
+        return "Afternoon"
     else:
-        return 'evening'
+        return "Evening"
     
 @app.route('/signupform')
 def signupform():
