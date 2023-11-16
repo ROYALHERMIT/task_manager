@@ -37,12 +37,12 @@ def get_time_of_day(hour):
     else:
         return 'evening'
     
-@app.route('/signupform')
+@app.route('/signup')
 def signupform():
 
     return render_template('signup.html')
 
-@app.route('/loginform')
+@app.route('/login')
 def loginform():
 
     return render_template('login.html')
@@ -104,7 +104,7 @@ def signup_form():
 
 @app.route('/login_form', methods=['POST'])
 def login_form():
-    user_name = request.form['name']
+    user_email = request.form['email']
     user_pass = request.form['password']
 
     # Create a database connection
@@ -117,12 +117,12 @@ def login_form():
         cursor = conn.cursor()
 
         # SQL query to retrieve the user based on the phone number
-        select_query = "SELECT * FROM users WHERE username = %s AND password = %s"
+        select_query = "SELECT * FROM users WHERE email = %s AND password = %s"
 
         # The parameter values
-        user_username = user_name
+        user_mail = user_email
         user_password = user_pass  # Hashed password, adjust accordingly
-        select_values = (user_username,user_password,)
+        select_values = (user_mail,user_password,)
 
         # Execute the SELECT query
         cursor.execute(select_query, select_values)
