@@ -16,6 +16,20 @@ body{
     width: 35rem;
 
 }
+.drop{
+    background-color: #202529;
+    color: white;
+    border: none;
+    padding: 11px;
+    width: 7rem;
+
+}
+.pmrgn{
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    padding: 0.2rem;
+}
+
 
 .ud{
     text-decoration: none;
@@ -25,15 +39,42 @@ body{
 .marg{
     margin-bottom: 1.5rem;
 }
+.cartimg{
+    border-radius: 50%;
+    width: 48px;
+    margin: -3px 4px 0 0;
+}
+
+.ltext{
+    color: white;
+    text-decoration: none;
+}
+
+.linkhover:hover{
+    text-decoration: underline white;
+}
+
+.nav-underline .nav-link.active {
+    font-weight: 700;
+    color: #efebeb;
+    border-bottom-color: currentcolor;
+}
 
 @media screen and (max-width: 1800px){
-    .cm{
-        margin-left: 2.5rem;
-    }
+    
 }
 
 @media screen and (max-width: 900px){
     .marg{
         margin-bottom: 1rem;
+    }
+    .cred{
+        width: 18rem;
+    }
+    .cm{
+        margin: 0 0.5rem 0 3.5rem ;
+    }
+    .drop{
+        margin: 0 0 0 4.5rem;
     }
 }

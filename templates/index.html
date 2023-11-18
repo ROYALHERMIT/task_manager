@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
@@ -27,59 +26,106 @@
   <div class="container">
     <div class="mb-4">
       <p class="d-flex justify-content-center mt-5 mb-0">{{ formatted_date}}</p>
-      <h2 class="d-flex  justify-content-center"id="name">Good {{time_category}}, abhi</h2>
+      <h2 class="d-flex  justify-content-center"id="name">Good {{time_category}}, Bokachoda</h2>
     </div>
-    <div class="d-flex justify-content-center ">
-      <div class="">
-        <div class="row cred">
-          <div class="col-3 border-end">
-            <p>My week</p>
-          </div>
-          <div class="col-5">
-            <i class="fa fa-check d-inline"></i>
-            <p class="d-inline">0</p>
-            <p class="d-inline">tasks completed</p>
-          </div>
-          <div class="col-4">
-            <i class="fa fa-user-group d-inline"></i>
-            <p class="d-inline">0</p>
-            <p class="d-inline">collaborators</p>
-          </div>
+    <div class="d-flex justify-content-center">
+      <div class="row cred">
+        <div class="col-sm-3 border-end ">
+          <select class="form-select drop" aria-label="Default select example">
+            <option value="1" selected>My week</option>
+            <option value="2">My month</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <p class=" pmrgn">
+            <span><i class="fa fa-check"></i></span>
+            <span>0</span>
+            <span>tasks completed</span>
+          </p>
+        </div>
+        <div class="col-sm-5">
+          <p class="pmrgn">
+            <span><i class="fa fa-user-group"></i></span>
+            <span>0</span>
+            <span>collaborators</span>
+          </p>
         </div>
       </div>
     </div>
     <!-- card -->
-    <div class="row mt-3 cm">
-      <div class="col-md-6 card">
+    <div class="row d-flex justify-content-center mt-3 cm">
+      <div class="col-md-5 card m-2">
         <div class="card-body">
-          <h4 class="card-title mb-4">Project</h4>
+          <h4 class="card-title mb-4">Projects</h4>
           <div class="row">
             <div class="col-md-6 marg">
               <a href="#" class="ud">
-                <i class="fa fa-square-plus fa-2xl d-inline"></i>
+                <i class="fa-regular fa-square-plus fa-2xl d-inline"></i>
                 <p class="card-text ms-2 d-inline">Create project</p>
               </a>
             </div>
             <div class="col-md-6 marg">
               <a href="#" class="ud">
-                <i class="fa fa-chart-bar fa-2xl d-inline"></i>
+                <i class="fa-regular fa-chart-bar fa-2xl d-inline"></i>
                 <p class="card-text ms-2 d-inline">Project name</p>
               </a>
             </div>
             <div class="col-md-6 marg">
               <a href="#" class="ud">
-                <i class="fa fa-chart-bar fa-2xl d-inline"></i>
+                <i class="fa-regular fa-chart-bar fa-2xl d-inline"></i>
                 <p class="card-text ms-2 d-inline">Project name</p>
               </a>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-6 card">
+      <div class="col-md-5 card m-2">
         <div class="card-body">
-          <h4 class="card-title mb-4">Projects</h4>
-
+          <img class="cartimg d-inline" src="https://m.media-amazon.com/images/I/01Kv-W2ysOL._SY600_.png" alt="">
+          <a class="ltext linkhover " href="#"><h4 class="card-title d-inline">My tasks</h4></a>
+          <div class="border-bottom">
+            <ul class="nav nav-underline ">
+              <li class="nav-item">
+                <a class="nav-link "  href="#">Active</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+            </ul>
+          </div>
         </div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
