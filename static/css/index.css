@@ -1,16 +1,20 @@
 body{
-    background-color: #292d30;
+    background-color: #15191b;
     color: white;
 }
 
 .card{
-    border-color: beige;
-    background-color: #292d30;
+    border-color: #4e575e;
+    background-color: #202529;
     color: white;
 }
 .cred{
+    border: 1px solid #4e575e;
     border-radius: 50px ;
+    background-color: #202529;
+    color: white;
     width: 35rem;
+
 }
 
 .ud{

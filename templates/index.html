@@ -25,67 +25,60 @@
   <sidebar-navbar></sidebar-navbar>
   <!--cart start-->
   <div class="container">
-    <div class="mb-3">
-      <p class="d-flex justify-content-center mt-5">{{ formatted_date}}</p>
+    <div class="mb-4">
+      <p class="d-flex justify-content-center mt-5 mb-0">{{ formatted_date}}</p>
       <h2 class="d-flex  justify-content-center"id="name">Good {{time_category}}, abhi</h2>
     </div>
-    <div class="d-flex justify-content-center">
-      <div class="card cred">
-        <div class="card-body">
-          <div class="container">
-            <div class="row">
-              <div class="col-3 border-end">
-                <p>My week</p>
-              </div>
-              <div class="col-5">
-                <i class="fa fa-check d-inline"></i>
-                <p class="d-inline">0</p>
-                <p class="d-inline">tasks completed</p>
-              </div>
-              <div class="col-4">
-                <i class="fa fa-user-group d-inline"></i>
-                <p class="d-inline">0</p>
-                <p class="d-inline">collaborators</p>
-              </div>
-            </div>
+    <div class="d-flex justify-content-center ">
+      <div class="">
+        <div class="row cred">
+          <div class="col-3 border-end">
+            <p>My week</p>
+          </div>
+          <div class="col-5">
+            <i class="fa fa-check d-inline"></i>
+            <p class="d-inline">0</p>
+            <p class="d-inline">tasks completed</p>
+          </div>
+          <div class="col-4">
+            <i class="fa fa-user-group d-inline"></i>
+            <p class="d-inline">0</p>
+            <p class="d-inline">collaborators</p>
           </div>
         </div>
       </div>
     </div>
+    <!-- card -->
     <div class="row mt-3 cm">
-      <div class="col-md-6 ">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Projests</h4>
-            <div class="row">
-              <div class="col-md-6 marg">
-                <a href="#" class="ud">
-                  <i class="fa fa-square-plus fa-2xl d-inline"></i>
-                  <p class="card-text ms-2 d-inline">Create project</p>
-                </a>
-              </div>
-              <div class="col-md-6 marg">
-                <a href="#" class="ud">
-                  <i class="fa fa-chart-bar fa-2xl d-inline"></i>
-                  <p class="card-text ms-2 d-inline">Project name</p>
-                </a>
-              </div>
-              <div class="col-md-6 marg">
-                <a href="#" class="ud">
-                  <i class="fa fa-chart-bar fa-2xl d-inline"></i>
-                  <p class="card-text ms-2 d-inline">Project name</p>
-                </a>
-              </div>
+      <div class="col-md-6 card">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Project</h4>
+          <div class="row">
+            <div class="col-md-6 marg">
+              <a href="#" class="ud">
+                <i class="fa fa-square-plus fa-2xl d-inline"></i>
+                <p class="card-text ms-2 d-inline">Create project</p>
+              </a>
+            </div>
+            <div class="col-md-6 marg">
+              <a href="#" class="ud">
+                <i class="fa fa-chart-bar fa-2xl d-inline"></i>
+                <p class="card-text ms-2 d-inline">Project name</p>
+              </a>
+            </div>
+            <div class="col-md-6 marg">
+              <a href="#" class="ud">
+                <i class="fa fa-chart-bar fa-2xl d-inline"></i>
+                <p class="card-text ms-2 d-inline">Project name</p>
+              </a>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-6 ">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h4 class="card-title mb-4">Projests</h4>
+      <div class="col-md-6 card">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Projects</h4>
 
-          </div>
         </div>
       </div>
     </div>
@@ -99,7 +92,7 @@
   <script>
     var userData = JSON.parse(localStorage.getItem("loguser"));
     if (!userData) {
-      window.location.href = "/loginform"
+      window.location.href = "/login"
     }
     else{
       jQuery("#name").html();
