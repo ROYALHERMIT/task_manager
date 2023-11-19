@@ -10,21 +10,13 @@
 <body>
     <div class="container">
         <div class="form-container" id="login-form">
-          <h1>Signup</h1>
+          <h1>Create Project</h1>
           <form>
-            <label for="username">Username</label>
-            <input type="username" id="username" name="username" required>
-            <label for="phone">Phone number</label>
-            <input type="number" id="phone" name="phone" required>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <label for="Enter the Project name">Project Name</label>
+            <input type="name" class ="p_name" id="username" name="project name" required>
             <p id="LoginAlert"></p>
-            <button type="submit"id="login_btn">Signup</button>
+            <button type="submit"id="login_btn">Create</button>
           </form>
-          <p>Already logged in? <a href="/login" id="signup-link">Login</a></p>
-          
         </div>
       </div>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -34,28 +26,34 @@
 
     </script>
         <script>
+            userData = localStorage.getItem('loguser');
+            if(!userData){
+                window.location.href = '/login'
+            }
+            var id = userData[1]
+            console.log(id);
+            console.log(userData);
+
+        </script>
+        <script>
             $(document).ready(function () {
                 $("#login_btn").on("click", function (e) {
                     // Get form data
                     e.preventDefault();
-                    var user_name = $("#username").val();
-                    var user_phone = $("#phone").val();
-                    var user_pass = $("#password").val();
-                    var user_email = $("#email").val();
+                    var project_name  = $(".p_name").val();
+                    var user_id = id;
     
                     // Prepare the data to be sent in the AJAX request
                     var formData = {
-                      phone: user_phone,
-                        password: user_pass,
-                        name:user_name,
-                        email:user_email,
+                        uid: user_id,
+                        name:project_name,
                     };
                     console.log(formData);
                     
                     // Assuming you have already defined formData with the necessary data (username, number, password) earlier in your code.
     
                     $.ajax({
-                        url: "/signup_form",
+                        url: "/project_form",
                         type: "POST",
                         data: formData, // Assuming formData is properly defined with the required form data.
                         success: function (response) {
@@ -64,7 +62,7 @@
                             if (response.status === "success") {
                                 // Registration successful
                                 // Save user data to localStorage
-                                localStorage.setItem("loguser", JSON.stringify(response.data));
+                                // localStorage.setItem("loguser", JSON.stringify(response.data));
     
                                 // Redirect to the home page (you might want to change this URL to match your actual home page URL)
                                 window.location.href = "/"; // Assuming your home page URL is "/home"
