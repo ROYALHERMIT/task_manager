@@ -1,22 +1,24 @@
-body{
+body {
     background-color: #15191b;
     color: white;
 }
 
-.card{
+.card {
     border-color: #4e575e;
     background-color: #202529;
     color: white;
 }
-.cred{
+
+.cred {
     border: 1px solid #4e575e;
-    border-radius: 50px ;
+    border-radius: 50px;
     background-color: #202529;
     color: white;
     width: 35rem;
 
 }
-.drop{
+
+.drop {
     background-color: #202529;
     color: white;
     border: none;
@@ -24,33 +26,35 @@ body{
     width: 7rem;
 
 }
-.pmrgn{
+
+.pmrgn {
     margin-top: 0.5rem !important;
     margin-bottom: 0.5rem !important;
     padding: 0.2rem;
 }
 
 
-.ud{
+.ud {
     text-decoration: none;
     color: white;
 }
 
-.marg{
+.marg {
     margin-bottom: 1.5rem;
 }
-.cartimg{
+
+.cartimg {
     border-radius: 50%;
     width: 48px;
     margin: -3px 4px 0 0;
 }
 
-.ltext{
+.ltext {
     color: white;
     text-decoration: none;
 }
 
-.linkhover:hover{
+.linkhover:hover {
     text-decoration: underline white;
 }
 
@@ -60,21 +64,23 @@ body{
     border-bottom-color: currentcolor;
 }
 
-@media screen and (max-width: 1800px){
-    
-}
 
-@media screen and (max-width: 900px){
-    .marg{
+@media screen and (max-width: 1800px) {}
+
+@media screen and (max-width: 900px) {
+    .marg {
         margin-bottom: 1rem;
     }
-    .cred{
+
+    .cred {
         width: 18rem;
     }
-    .cm{
-        margin: 0 0.5rem 0 3.5rem ;
+
+    .cm {
+        margin: 0 0.5rem 0 3.5rem;
     }
-    .drop{
+
+    .drop {
         margin: 0 0 0 4.5rem;
     }
 }
