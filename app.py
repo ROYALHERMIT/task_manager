@@ -6,7 +6,6 @@ db_config = {
     'host': 'localhost',
     'port': 3307,  
     'user': 'root',
-    'password':'root',
     'database': 'DB_PROBO',
 }
 
@@ -46,6 +45,10 @@ def signupform():
 def loginform():
 
     return render_template('login.html')
+
+@app.route('/project')
+def create_project():
+    return render_template('project.html')
 
 @app.route('/signup_form', methods=['POST'])
 def signup_form():
