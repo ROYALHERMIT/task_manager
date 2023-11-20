@@ -5,6 +5,7 @@ app = Flask(__name__, static_folder='static')
 db_config = {
     'host': 'localhost',
     'port': 3307,  
+    'password': 'root',
     'user': 'root',
     'database': 'DB_PROBO',
 }
@@ -167,15 +168,15 @@ def project_form():
         conn.commit()
         select_query = "SELECT * FROM projects WHERE p_name = %s"
 
-            # The parameter values
+
         select_params = (p_name,)
 
-        # Execute the SELECT query
+       
         cursor.execute(select_query, select_params)
-        result = cursor.fetch()
+        result = cursor.fetchall()
         print(result)
-        result = cursor.fetchone()
-        print(result)
+        
+
         if result:
             return jsonify({"status": "success", "message": "Project created sucessfully.","data":result})
         else:
