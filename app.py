@@ -5,7 +5,6 @@ app = Flask(__name__, static_folder='static')
 db_config = {
     'host': 'localhost',
     'port': 3307,  
-    'password': 'root',
     'user': 'root',
     'database': 'DB_PROBO',
 }
@@ -158,38 +157,29 @@ def project_form():
         # Use a try-except block to handle any potential errors
         # Create a cursor to interact with the database
         cursor = conn.cursor()
-
-        # SQL query to retrieve the user based on the phone number
-        select_query = "SELECT * FROM projects WHERE p_name = %s or user_id = %s"
-
         # The parameter values
         p_name = project_name
         uid = user_id  # Hashed password, adjust accordingly
+        # User does not exist
+        insert_query = "INSERT INTO projects (p_name, user_id) VALUES (%s, %s)"
         select_values = (p_name, uid)
-        cursor.execute(select_query, select_values)
-        result = cursor.fetchone()
-        if result:
-            return jsonify({"status": "invalid", "message": "User already registered"})
-
-        else:
-            # User does not exist
-            insert_query = "INSERT INTO projects (p_name, user_id) VALUES (%s, %s)"
-            select_values = (p_name, uid)
-            cursor.execute(insert_query, select_values )
-            conn.commit()
-            select_query = "SELECT * FROM projects WHERE p_name = %s"
+        cursor.execute(insert_query, select_values )
+        conn.commit()
+        select_query = "SELECT * FROM projects WHERE p_name = %s"
 
             # The parameter values
-            select_params = (p_name,)
+        select_params = (p_name,)
 
-            # Execute the SELECT query
-            cursor.execute(select_query, select_params)
-            result = cursor.fetchone()
-            print(result)
-            if result:
-                return jsonify({"status": "success", "message": "User registered successfully.","data":result})
-            else:
-                return jsonify({"status": "invalid", "message": "something went wrong"})
+        # Execute the SELECT query
+        cursor.execute(select_query, select_params)
+        result = cursor.fetch()
+        print(result)
+        result = cursor.fetchone()
+        print(result)
+        if result:
+            return jsonify({"status": "success", "message": "Project created sucessfully.","data":result})
+        else:
+            return jsonify({"status": "invalid", "message": "Could not create the project."})
     except Exception as e:
         # Handle any exceptions that may occur during the database operation
         return jsonify({"status": "error", "message": f"An error occurred: {e}"})
