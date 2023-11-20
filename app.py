@@ -5,8 +5,8 @@ app = Flask(__name__, static_folder='static')
 db_config = {
     'host': 'localhost',
     'port': 3307,  
+    'password': 'root',
     'user': 'root',
-    'password':'root',
     'database': 'DB_PROBO',
 }
 
@@ -39,13 +39,15 @@ def get_time_category(current_hour):
     
 @app.route('/signup')
 def signupform():
-
     return render_template('signup.html')
 
 @app.route('/login')
 def loginform():
-
     return render_template('login.html')
+
+@app.route('/project')
+def create_project():
+    return render_template('project.html')
 
 @app.route('/signup_form', methods=['POST'])
 def signup_form():
@@ -135,6 +137,50 @@ def login_form():
             # User does not exist
             return jsonify({"status": "error", "message": "Invalid credentials."})
 
+    except Exception as e:
+        # Handle any exceptions that may occur during the database operation
+        return jsonify({"status": "error", "message": f"An error occurred: {e}"})
+    finally:
+        # Close the cursor and connection
+        cursor.close()
+        conn.close()
+
+@app.route('/project_form', methods=['POST'])
+def project_form():
+    project_name = request.form['name']
+    user_id = request.form['uid']
+    print(user_id)
+    # Create a database connection
+ 
+    conn = mysql.connector.connect(**db_config)
+    cursor = None
+    try:
+        # Use a try-except block to handle any potential errors
+        # Create a cursor to interact with the database
+        cursor = conn.cursor()
+        # The parameter values
+        p_name = project_name
+        uid = user_id  # Hashed password, adjust accordingly
+        # User does not exist
+        insert_query = "INSERT INTO projects (p_name, user_id) VALUES (%s, %s)"
+        select_values = (p_name, uid)
+        cursor.execute(insert_query, select_values )
+        conn.commit()
+        select_query = "SELECT * FROM projects WHERE p_name = %s"
+
+
+        select_params = (p_name,)
+
+       
+        cursor.execute(select_query, select_params)
+        result = cursor.fetchall()
+        print(result)
+        
+
+        if result:
+            return jsonify({"status": "success", "message": "Project created sucessfully.","data":result})
+        else:
+            return jsonify({"status": "invalid", "message": "Could not create the project."})
     except Exception as e:
         # Handle any exceptions that may occur during the database operation
         return jsonify({"status": "error", "message": f"An error occurred: {e}"})
