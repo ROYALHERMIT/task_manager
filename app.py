@@ -5,6 +5,7 @@ app = Flask(__name__, static_folder='static')
 db_config = {
     'host': 'localhost',
     'port': 3307,  
+    'password': 'root',
     'user': 'root',
     'database': 'DB_PROBO',
 }
@@ -144,11 +145,11 @@ def login_form():
         cursor.close()
         conn.close()
 
-@app.route('/project_form')
+@app.route('/project_form', methods=['POST'])
 def project_form():
     project_name = request.form['name']
-    user_id = request.form['id']
-
+    user_id = request.form['uid']
+    print(user_id)
     # Create a database connection
  
     conn = mysql.connector.connect(**db_config)
@@ -173,7 +174,8 @@ def project_form():
         else:
             # User does not exist
             insert_query = "INSERT INTO projects (p_name, user_id) VALUES (%s, %s)"
-            cursor.execute(insert_query, (user_name,user_email,user_phone, user_pass))
+            select_values = (p_name, uid)
+            cursor.execute(insert_query, select_values )
             conn.commit()
             select_query = "SELECT * FROM projects WHERE p_name = %s"
 
