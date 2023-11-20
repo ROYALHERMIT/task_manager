@@ -4,7 +4,7 @@ from datetime import datetime
 app = Flask(__name__, static_folder='static')
 db_config = {
     'host': 'localhost',
-    'port': 3306,  
+    'port': 3307,  
     'user': 'root',
     'password':'root',
     'database': 'DB_PROBO',
