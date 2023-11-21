@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Member Invite Form</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/invite.css') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<!-- Button to trigger modal -->
+<button id="openModalBtn" style="margin: 20px; padding: 10px 20px; font-size: 18px; border-radius: 6px; background-color: #8a2be2; color: #fff; border: none; cursor: pointer;">Open Invite Form</button>
+
+<!-- Modal -->
+<div id="inviteModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 style="text-align: center; margin-bottom: 20px;">Invite a Member</h2>
+    <form id="inviteForm">
+      <div class="input-group">
+        <label for="invitingEmail">Your Email</label>
+        <input type="email" id="invitingEmail" name="invitingEmail" required>
+      </div>
+      <div class="input-group">
+        <label for="projectName">Project Name</label>
+        <input type="text" id="projectName" name="projectName" required>
+      </div>
+      <div class="input-group" style="text-align: center;">
+        <button type="submit" style="padding: 10px 20px; font-size: 16px; border-radius: 6px; background-color: #8a2be2; color: #fff; border: none; cursor: pointer; transition: 0.3s;">Send Invitation</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Get the modal
+  const modal = document.getElementById('inviteModal');
+
+  // Get the button that opens the modal
+  const btn = document.getElementById('openModalBtn');
+
+  // Get the <span> element that closes the modal
+  const closeBtn = document.getElementsByClassName('close')[0];
+
+  // When the user clicks the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = 'block';
+  };
+
+  // When the user clicks on <span> (x), close the modal
+  closeBtn.onclick = function() {
+    modal.style.display = 'none';
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+  // Submit form handling
+  const form = document.getElementById('inviteForm');
+  form.addEventListener('submit', function(event) {
+    // Your submission logic here
+    event.preventDefault(); // Prevents the default form submission
+    // Example: You can fetch the values from the form and perform an action
+    const invitingEmail = document.getElementById('invitingEmail');
+    const projectName = document.getElementById('projectName');
+    formData = {
+      InvitingEmail: invitingEmail.value,
+      ProjectName: projectName.value
+    }
+    invitingEmail.value = ''
+    projectName.value = ''
+    // console.log('Inviting Email:', invitingEmail);
+    // console.log('Project Name:', projectName);
+    console.log(formData);
+    // Additional logic like sending data to a server can be added here
+    modal.style.display = 'none'; // Close the modal after submission (you may update this according to your implementation)
+  });
+</script>
+
+</body>
+</html>

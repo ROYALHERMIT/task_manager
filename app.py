@@ -5,7 +5,6 @@ app = Flask(__name__, static_folder='static')
 db_config = {
     'host': 'localhost',
     'port': 3307,  
-    'password': 'root',
     'user': 'root',
     'database': 'DB_PROBO',
 }
@@ -48,6 +47,10 @@ def loginform():
 @app.route('/project')
 def create_project():
     return render_template('project.html')
+
+@app.route('/invite')
+def invite_modal():
+    return render_template('invite.html')
 
 @app.route('/signup_form', methods=['POST'])
 def signup_form():
