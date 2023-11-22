@@ -54,6 +54,15 @@ body {
     text-decoration: none;
 }
 
+.cartItem{
+    color: rgb(194, 194, 194);
+    text-decoration: none;
+}
+.cartItem:hover{
+    color: rgb(194, 194, 194);
+    text-decoration: none;
+}
+
 .linkhover:hover {
     text-decoration: underline white;
 }
@@ -63,6 +72,67 @@ body {
     color: #efebeb;
     border-bottom-color: currentcolor;
 }
+
+.datein {
+    width: 6rem;
+    border: none;
+    background-color: #202529;
+    color: white;
+}
+
+.icon-button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+}
+
+.datepicker {
+    background-color: #202529;
+    color: #ffffff;
+}
+
+.datepicker th,
+.datepicker td {
+    color: #292626;
+    /* Set the text color to light */
+}
+
+.datepicker .datepicker-switch,
+.datepicker .datepicker-title,
+.datepicker thead th {
+    color: #ffffff !important;
+    /* Set the text color to light */
+}
+
+.datepicker thead th:hover {
+    background-color: #212529;
+    /* Set the hover background color */
+}
+
+.datepicker .prev:hover,
+.datepicker .next:hover {
+    background-color: #212529;
+    /* Set the hover background color for the prev/next buttons */
+}
+
+.datepicker tfoot th {
+    color: #ffffff;
+    /* Set the text color to light */
+}
+
+.datepicker tfoot th.today:hover,
+.datepicker tfoot th.clear:hover {
+    background-color: #212529;
+    /* Set the hover background color for today/clear buttons */
+}
+
+
+
+/* clockpicker */
+
+
 
 
 @media screen and (max-width: 1800px) {}

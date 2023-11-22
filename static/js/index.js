@@ -1,3 +1,4 @@
+// datepicker
 $('#example').datepicker({
     inline: true
 });
@@ -11,3 +12,19 @@ $('#datePickerIcon').click(function () {
 $('#example').on('changeDate', function () {
     $('#example').datepicker('hide');
 });
+
+// ClockPicker
+$('.clockpicker').clockpicker({
+    donetext: 'Done',
+    autoclose: true
+  });
+
+  $(document).ready(function () {
+    $(".cartItem").click(function () {
+      $(".cartItem").removeClass("active");
+      $(this).addClass("active").addClass("redBackground");
+      $(".textContainer").hide();
+      var index = $(this).data("item-index");
+      $("#textContainer" + index).toggle();
+    });
+  });
