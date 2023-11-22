@@ -54,11 +54,12 @@ body {
     text-decoration: none;
 }
 
-.cartItem{
+.cartItem {
     color: rgb(194, 194, 194);
     text-decoration: none;
 }
-.cartItem:hover{
+
+.cartItem:hover {
     color: rgb(194, 194, 194);
     text-decoration: none;
 }
@@ -128,6 +129,21 @@ body {
     /* Set the hover background color for today/clear buttons */
 }
 
+.datepicker-days .table-condensed>thead>tr>th,
+.datepicker-days .table-condensed>tbody>tr>th,
+.datepicker-days .table-condensed>thead>tr>td,
+.datepicker-days .table-condensed>tbody>tr>td,
+.datepicker-months .table-condensed>thead>tr>th,
+.datepicker-months .table-condensed>thead>tr>td,
+.datepicker-months .table-condensed>tbody>tr>th,
+.datepicker-months .table-condensed>tbody>tr>td,
+.datepicker-years .table-condensed>thead>tr>th,
+.datepicker-years .table-condensed>thead>tr>td,
+.datepicker-years .table-condensed>tbody>tr>th,
+.datepicker-years .table-condensed>tbody>tr>td {
+    color: #ffffff;
+    /* Set the text color to light */
+}
 
 
 /* clockpicker */
