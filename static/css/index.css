@@ -33,6 +33,15 @@ body {
     padding: 0.2rem;
 }
 
+.custom-bt{
+    margin-top: -3rem;
+    background-color: #202529;
+    border-color: #4e575e;
+}
+.custom-bt:hover{
+    background-color: #323539;
+    border-color: #323539;
+}
 
 .ud {
     text-decoration: none;
