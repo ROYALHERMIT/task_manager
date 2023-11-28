@@ -33,12 +33,13 @@ body {
     padding: 0.2rem;
 }
 
-.custom-bt{
+.custom-bt {
     margin-top: -3rem;
     background-color: #202529;
     border-color: #4e575e;
 }
-.custom-bt:hover{
+
+.custom-bt:hover {
     background-color: #323539;
     border-color: #323539;
 }
@@ -155,7 +156,39 @@ body {
 }
 
 
-/* clockpicker */
+/* popover */
+.pop_crt {
+    color: white;
+    text-decoration: none;
+}
+
+.pop_stext {
+    color: rgb(169, 169, 170);
+}
+
+.pop_mail {
+    text-decoration: underline;
+    max-width: 200px;
+}
+
+.popbt_collection {
+    background-color: #15191b;
+}
+
+.pop_btn {
+    height: 35px;
+}
+
+.pop_bt {
+    background-color: #202529;
+    border-color: #4e575e;
+    height: 35px;
+}
+
+.pop_bt:hover {
+    background-color: #323539;
+    border-color: #323539;
+}
 
 
 

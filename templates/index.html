@@ -9,8 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/clockpicker/dist/bootstrap-clockpicker.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.38.0/css/tempusdominus-bootstrap-4.min.css"
+    crossorigin="anonymous" />
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 
@@ -25,190 +27,363 @@
   <app-navbar></app-navbar>
   <sidebar-navbar></sidebar-navbar>
   <!--cart start-->
-  <div class="container">
-    <div class="mb-4">
-      <p class="d-flex justify-content-center mt-5 mb-0">{{ formatted_date}}</p>
-      <h2 class="d-flex  justify-content-center"id="name">Good {{time_category}}, Bokachoda</h2>
-    </div>
-    <div>
-      <div class="d-flex justify-content-center">
-        <div class="row cred">
-          <div class="col-sm-3 border-end ">
-            <select class="form-select drop" aria-label="Default select example">
-              <option value="1" selected>My week</option>
-              <option value="2">My month</option>
-            </select>
-          </div>
-          <div class="col-sm-4">
-            <p class=" pmrgn">
-              <span><i class="fa fa-check"></i></span>
-              <span>0</span>
-              <span>tasks completed</span>
-            </p>
-          </div>
-          <div class="col-sm-5">
-            <p class="pmrgn">
-              <span><i class="fa fa-user-group"></i></span>
-              <span>0</span>
-              <span>collaborators</span>
-            </p>
-          </div>
+  <div class="mb-4">
+    <p class="d-flex justify-content-center mt-5 mb-0">{{ formatted_date}}</p>
+    <h2 class="d-flex  justify-content-center" id="name">Good {{time_category}}, Bokachoda</h2>
+  </div>
+  <div>
+    <div class="d-flex justify-content-center">
+      <div class="row cred">
+        <div class="col-sm-3 border-end ">
+          <select class="form-select drop" aria-label="Default select ">
+            <option value="1" selected>My week</option>
+            <option value="2">My month</option>
+          </select>
         </div>
-      </div>
-      <div class="d-flex justify-content-end ">
-        <button class="btn btn-primary custom-bt" type="submit">
-          <span><i class="fa-solid fa-circle-nodes"></i></span>
-          <span>Customize</span>
-        </button>
+        <div class="col-sm-4">
+          <p class=" pmrgn">
+            <span><i class="fa fa-check"></i></span>
+            <span>0</span>
+            <span>tasks completed</span>
+          </p>
+        </div>
+        <div class="col-sm-5">
+          <p class="pmrgn">
+            <span><i class="fa fa-user-group"></i></span>
+            <span>0</span>
+            <span>collaborators</span>
+          </p>
+        </div>
       </div>
     </div>
-    <!-- card -->
-    <div class="row d-flex justify-content-center mt-3 cm">
-      <div class="col-md-5 card m-2">
-        <div class="card-body">
-          <h4 class="card-title mb-4">Projects</h4>
-          <div class="row">
-            <div class="col-md-6 marg">
-              <a href="#" class="ud">
-                <i class="fa-regular fa-square-plus fa-2xl d-inline"></i>
-                <p class="card-text ms-2 d-inline">Create project</p>
-              </a>
-            </div>
-            <div class="col-md-6 marg">
-              <a href="#" class="ud">
-                <i class="fa-regular fa-chart-bar fa-2xl d-inline"></i>
-                <p class="card-text ms-2 d-inline">Project name</p>
-              </a>
-            </div>
-            <div class="col-md-6 marg">
-              <a href="#" class="ud">
-                <i class="fa-regular fa-chart-bar fa-2xl d-inline"></i>
-                <p class="card-text ms-2 d-inline">Project name</p>
-              </a>
-            </div>
-          </div>
+    <div class="d-flex justify-content-end ">
+      <button class="btn btn-primary custom-bt" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        <span><i class="fa-solid fa-circle-nodes"></i></span>
+        <span>Customize</span>
+      </button>
+
+      <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          ...
         </div>
       </div>
-      <div class="col-md-5 card m-2">
-        <div class="card-body">
-          <img class="cartimg d-inline" src="https://m.media-amazon.com/images/I/01Kv-W2ysOL._SY600_.png" alt="">
-          <a class="ltext linkhover " href="#"><h4 class="card-title d-inline">My tasks</h4></a>
-          <div class="border-bottom">
-            <ul class="nav nav-underline ">
-              <li class="nav-item">
-                <a class="nav-link cartItem"  href="#" data-item-index="1">Upcoming</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link cartItem" href="#" data-item-index="2">Overdue</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link cartItem" href="#" data-item-index="3">completed</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div id="textContainer1" class="textContainer">
-          <div class="pb-3 border-bottom">
-            <a id="creattask" class="ud" href="#">
-              <i class="fa-solid fa-plus d-inline ps-2 pe-1"></i>
-              <p class="d-inline">Create task</p>
+    </div>
+  </div>
+  <!-- card -->
+  <div class="row d-flex justify-content-center mt-3 cm">
+    <div class="col-md-5 card m-2">
+      <div class="card-body">
+        <h4 class="card-title mb-4">Projects</h4>
+        <div class="row">
+          <div class="col-md-6 marg">
+            <a href="#" class="ud">
+              <i class="fa-regular fa-square-plus fa-2xl d-inline"></i>
+              <p class="card-text ms-2 d-inline">Create project</p>
             </a>
           </div>
-          <table id="" class="table table-dark table-hover">
-            <tbody id="tasktable">
-              <tr>
-                <th scope="row">
-                  <i class="fa-regular fa-circle-check"></i>
-                </th>
-                <td>bokachodatask</td>
-                <td>
-                  <div id="date-picker-example" class="input-with-post-icon datepicker" style="width: 9rem;">
-                    <div class="input-group">
-                      <input class="datein" placeholder="Select date" type="text" id="example">
-                      <!-- Calendar icon as the button -->
-                      <div class="input-group-append">
-                        <span class="input-group-text icon-button" id="datePickerIcon">
-                          <i class="fa-regular fa-calendar-plus"></i>
-                        </span>
+          <div class="col-md-6 marg">
+            <a href="#" class="ud">
+              <i class="fa-regular fa-chart-bar fa-2xl d-inline"></i>
+              <p class="card-text ms-2 d-inline">Project name</p>
+            </a>
+          </div>
+          <div class="col-md-6 marg">
+            <a href="#" class="ud">
+              <i class="fa-regular fa-chart-bar fa-2xl d-inline"></i>
+              <p class="card-text ms-2 d-inline">Project name</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 card m-2">
+      <div class="card-body">
+        <img class="cartimg d-inline" src="https://m.media-amazon.com/images/I/01Kv-W2ysOL._SY600_.png" alt="">
+        <a class="ltext linkhover " href="#">
+          <h4 class="card-title d-inline">My tasks</h4>
+        </a>
+        <div class="border-bottom">
+          <ul class="nav nav-underline ">
+            <li class="nav-item">
+              <a class="nav-link cartItem" href="#" data-item-index="1">Upcoming</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link cartItem" href="#" data-item-index="2">Overdue</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link cartItem" href="#" data-item-index="3">completed</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="textContainer1" class="textContainer">
+        <div class="pb-3 border-bottom">
+          <a id="creattask" class="ud" href="#">
+            <i class="fa-solid fa-plus d-inline ps-2 pe-1"></i>
+            <p class="d-inline">Create task</p>
+          </a>
+        </div>
+        <table id="" class="table table-dark table-hover">
+          <tbody id="tasktable">
+            <tr>
+              <th scope="row">
+                <i class="fa-regular fa-circle-check"></i>
+              </th>
+              <td>bokachodatask</td>
+              <td>
+                <div id="date-picker-example" class="input-with-post-icon datepicker" style="width: 9rem;">
+                  <div class="input-group">
+                    <input class="datein" placeholder="Select date" type="text" id="example_date">
+                    <!-- Calendar icon as the button -->
+                    <div class="input-group-append">
+                      <span class="input-group-text icon-button" id="datePickerIcon">
+                        <i class="fa-regular fa-calendar-plus"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="input-group clockpicker">
+                  <input id="timepicker" type="text" class="datein" value="12:00">
+                  <span class="input-group-addon">
+                    <i class="fas fa-clock"></i>
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <i class="fa-regular fa-circle-check"></i>
+              </th>
+              <td colspan="2">bokachodatask</td>
+              <td>date</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <i class="fa-regular fa-circle-check"></i>
+              </th>
+              <td colspan="2">bokachodatask</td>
+              <td>date</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <i class="fa-regular fa-circle-check"></i>
+              </th>
+              <td colspan="2">bokachodatask</td>
+              <td>date</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <i class="fa-regular fa-circle-check"></i>
+              </th>
+              <td colspan="2">bokachodatask</td>
+              <td>date</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="textContainer2" class="textContainer">
+        <table id="example" class="table table-dark table-hover">
+          <tbody>
+            <tr>
+              <td>
+                <i class="fa-regular fa-circle-check"></i>
+              </td>
+              <td>Rehanpaglachoda</td>
+              <td>System Architect</td>
+              <td>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
+                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </td>
-                <td>
-                  <div class="input-group clockpicker">
-                    <input id="timepicker" type="text" class="datein" value="12:00">
-                    <span class="input-group-addon">
-                      <i class="fas fa-clock"></i>
-                    </span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <i class="fa-regular fa-circle-check"></i>
-                </th>
-                <td colspan="2">bokachodatask</td>
-                <td>date</td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <i class="fa-regular fa-circle-check"></i>
-                </th>
-                <td colspan="2">bokachodatask</td>
-                <td>date</td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <i class="fa-regular fa-circle-check"></i>
-                </th>
-                <td colspan="2">bokachodatask</td>
-                <td>date</td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <i class="fa-regular fa-circle-check"></i>
-                </th>
-                <td colspan="2">bokachodatask</td>
-                <td>date</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div id="textContainer2" class="textContainer">lawra.</div>
-      </div>
-      <div class="col-md-5 card m-2">
-        <div class="card-body">
-          <h4 class="card-title mb-4">People</h4>
-          <div class="row">
-            <div class="col-md-6 marg">
-              <a href="#" class="ud">
-                <i class="fa-solid fa-user-plus fa-2xl d-inline"></i>
-                <p class="card-text ms-2 d-inline">Invite</p>
-              </a>
-            </div>
-            <div class="col-md-6 marg">
-              <a href="#" class="ud">
-                <div class="row">
-                  <div class="col-3">
-                    <img class="cartimg" src="https://m.media-amazon.com/images/I/01Kv-W2ysOL._SY600_.png" alt="">
-                  </div>
-                  <div class="col-9">
-                    <p class="card-text text-truncate" style="max-width: 150px; padding-top: 0.5rem;">samimbokachoda@gmail.com</p>
-                  </div>
+                  <script type="text/javascript">
+                    $(function () {
+                      $('#datetimepicker1').datetimepicker();
+                    });
+                  </script>
                 </div>
-              </a>
-            </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Garrett Winters</td>
+              <td>Accountant</td>
+              <td>Tokyo</td>
+              <td>63</td>
+              <td>2011-07-25</td>
+              <td>$170,750</td>
+            </tr>
+            <tr>
+              <td>Sakura Yamamoto</td>
+              <td>Support Engineer</td>
+              <td>Tokyo</td>
+              <td>37</td>
+              <td>2009-08-19</td>
+              <td>$139,575</td>
+            </tr>
+            <tr>
+              <td>Thor Walton</td>
+              <td>Developer</td>
+              <td>New York</td>
+              <td>61</td>
+              <td>2013-08-11</td>
+              <td>$98,540</td>
+            </tr>
+            <tr>
+              <td>Finn Camacho</td>
+              <td>Support Engineer</td>
+              <td>San Francisco</td>
+              <td>47</td>
+              <td>2009-07-07</td>
+              <td>$87,500</td>
+            </tr>
+            <tr>
+              <td>Serge Baldwin</td>
+              <td>Data Coordinator</td>
+              <td>Singapore</td>
+              <td>64</td>
+              <td>2012-04-09</td>
+              <td>$138,575</td>
+            </tr>
+            <tr>
+              <td>Zenaida Frank</td>
+              <td>Software Engineer</td>
+              <td>New York</td>
+              <td>63</td>
+              <td>2010-01-04</td>
+              <td>$125,250</td>
+            </tr>
+            <tr>
+              <td>Zorita Serrano</td>
+              <td>Software Engineer</td>
+              <td>San Francisco</td>
+              <td>56</td>
+              <td>2012-06-01</td>
+              <td>$115,000</td>
+            </tr>
+            <tr>
+              <td>Jennifer Acosta</td>
+              <td>Junior Javascript Developer</td>
+              <td>Edinburgh</td>
+              <td>43</td>
+              <td>2013-02-01</td>
+              <td>$75,650</td>
+            </tr>
+            <tr>
+              <td>Cara Stevens</td>
+              <td>Sales Assistant</td>
+              <td>New York</td>
+              <td>46</td>
+              <td>2011-12-06</td>
+              <td>$145,600</td>
+            </tr>
+            <tr>
+              <td>Hermione Butler</td>
+              <td>Regional Director</td>
+              <td>London</td>
+              <td>47</td>
+              <td>2011-03-21</td>
+              <td>$356,250</td>
+            </tr>
+            <tr>
+              <td>Lael Greer</td>
+              <td>Systems Administrator</td>
+              <td>London</td>
+              <td>21</td>
+              <td>2009-02-27</td>
+              <td>$103,500</td>
+            </tr>
+            <tr>
+              <td>Jonas Alexander</td>
+              <td>Developer</td>
+              <td>San Francisco</td>
+              <td>30</td>
+              <td>2010-07-14</td>
+              <td>$86,500</td>
+            </tr>
+            <tr>
+              <td>Shad Decker</td>
+              <td>Regional Director</td>
+              <td>Edinburgh</td>
+              <td>51</td>
+              <td>2008-11-13</td>
+              <td>$183,000</td>
+            </tr>
+            <tr>
+              <td>Michael Bruce</td>
+              <td>Javascript Developer</td>
+              <td>Singapore</td>
+              <td>29</td>
+              <td>2011-06-27</td>
+              <td>$183,000</td>
+            </tr>
+            <tr>
+              <td>Donna Snider</td>
+              <td>Customer Support</td>
+              <td>New York</td>
+              <td>27</td>
+              <td>2011-01-25</td>
+              <td>$112,000</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div id="textContainer3" class="textContainer">samim paglachoda</div>
+    </div>
+    <div class="col-md-5 card m-2">
+      <div class="card-body">
+        <h4 class="card-title mb-4">People</h4>
+        <div class="row">
+          <div class="col-md-6 marg">
+            <a href="#" class="ud">
+              <i class="fa-solid fa-user-plus fa-2xl d-inline"></i>
+              <p class="card-text ms-2 d-inline">Invite</p>
+            </a>
+          </div>
+          <div class="col-md-6 marg">
+            <a href="#" class="ud">
+              <div class="row">
+                <div class="col-3">
+                  <img class="cartimg" src="https://m.media-amazon.com/images/I/01Kv-W2ysOL._SY600_.png" alt="">
+                </div>
+                <div class="col-9">
+                  <p id="pop_people" class="card-text text-truncate" style="max-width: 150px; padding-top: 0.5rem;">
+                    samimbokachoda@gmail.com</p>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
-      <div class="col-md-5 card m-2">
-        <div class="card-body">
-          <h4 class=" mb-4">Drag and drop new widgets</h4>
-          <button class="btn btn-primary" type="submit">
-            <span><i class="fa-solid fa-circle-nodes"></i></span>
-            <span>Customize</span>
-          </button>
-        </div>
+    </div>
+    <div class="col-md-5 card m-2">
+      <div class="card-body">
+        <h4 class=" mb-4">Drag and drop new widgets</h4>
+        <button class="btn btn-primary custom-bt" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+          <span><i class="fa-solid fa-circle-nodes"></i></span>
+          <span>Customize</span>
+        </button>
       </div>
     </div>
   </div>
@@ -232,25 +407,27 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-  </script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/clockpicker/dist/bootstrap-clockpicker.min.js"></script>
+    </script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.38.0/js/tempusdominus-bootstrap-4.min.js"
+    crossorigin="anonymous"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
   <script>
     var userData = JSON.parse(localStorage.getItem("loguser"));
     if (!userData) {
       window.location.href = "/login"
     }
-    else{
+    else {
       jQuery("#name").html();
       jQuery("#name").html(`<h2 class="d-flex  justify-content-center"id="name">Good {{time_category}}, ${userData[1]}</h2>`)
     }
   </script>
 
-    
+
 </body>
 
 </html>
