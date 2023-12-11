@@ -1,22 +1,3 @@
-$(document).ready(function () {
-  var activeItemIndex = localStorage.getItem('activeItemIndex');
-
-  if (activeItemIndex) {
-    $(".cartItem[data-item-index='" + activeItemIndex + "']").addClass("active");
-    $("#textContainer" + activeItemIndex).show();
-  }
-
-  $(".cartItem").click(function () {
-    $(".cartItem").removeClass("active");
-    $(this).addClass("active");
-    $(".textContainer").hide();
-
-    var index = $(this).data("item-index");
-    $("#textContainer" + index).toggle();
-
-    localStorage.setItem('activeItemIndex', index);
-  });
-});
 // datepicker
 // $('#example_date').datepicker({
 //     inline: true
@@ -38,13 +19,26 @@ $(document).ready(function () {
 //     donetext: 'Done',
 //     autoclose: true
 //   });
-new DataTable('#example');
 
-$(function () {
-  $('#datetimepicker1').datetimepicker();
+$(document).ready(function () {
+  var activeItemIndex = localStorage.getItem('activeItemIndex');
+
+  if (activeItemIndex) {
+    $(".cartItem[data-item-index='" + activeItemIndex + "']").addClass("active");
+    $("#textContainer" + activeItemIndex).show();
+  }
+
+  $(".cartItem").click(function () {
+    $(".cartItem").removeClass("active");
+    $(this).addClass("active");
+    $(".textContainer").hide();
+
+    var index = $(this).data("item-index");
+    $("#textContainer" + index).toggle();
+
+    localStorage.setItem('activeItemIndex', index);
+  });
 });
-
-
 
 $(document).ready(function () {
 
