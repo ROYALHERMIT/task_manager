@@ -85,7 +85,7 @@ body {
 }
 
 .datein {
-    width: 6rem;
+    width: 6rem !important;
     border: none;
     background-color: #202529;
     color: white;
