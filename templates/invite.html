@@ -1,85 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Member Invite Form</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/invite.css') }}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Member Invite Form</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/invite.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
 
-<!-- Button to trigger modal -->
-<button id="openModalBtn" style="margin: 20px; padding: 10px 20px; font-size: 18px; border-radius: 6px; background-color: #8a2be2; color: #fff; border: none; cursor: pointer;">Open Invite Form</button>
+  <!-- Button to trigger modal -->
+  <button id="openModalBtn"
+    style="margin: 20px; padding: 10px 20px; font-size: 18px; border-radius: 6px; background-color: #8a2be2; color: #fff; border: none; cursor: pointer;">Open
+    Invite Form</button>
 
-<!-- Modal -->
-<div id="inviteModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2 style="text-align: center; margin-bottom: 20px;">Invite a Member</h2>
-    <form id="inviteForm">
-      <div class="input-group">
-        <label for="invitingEmail">Your Email</label>
-        <input type="email" id="invitingEmail" name="invitingEmail" required>
-      </div>
-      <div class="input-group">
-        <label for="projectName">Project Name</label>
-        <input type="text" id="projectName" name="projectName" required>
-      </div>
-      <div class="input-group" style="text-align: center;">
-        <button type="submit" style="padding: 10px 20px; font-size: 16px; border-radius: 6px; background-color: #8a2be2; color: #fff; border: none; cursor: pointer; transition: 0.3s;">Send Invitation</button>
-      </div>
-    </form>
+  <!-- Modal -->
+  <div id="inviteModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 style="text-align: center; margin-bottom: 20px;">Invite a Member</h2>
+      <form id="inviteForm">
+        <div class="input-group">
+          <label for="invitingEmail">Your Email</label>
+          <input type="email" id="invitingEmail" name="invitingEmail" required>
+        </div>
+        <div class="input-group">
+          <label for="projectName">Project Name</label>
+          <input type="text" id="projectName" name="projectName" required>
+        </div>
+        <div class="input-group" style="text-align: center;">
+          <p id="LoginAlert"></p>
+          <button type="submit"
+            style="padding: 10px 20px; font-size: 16px; border-radius: 6px; background-color: #8a2be2; color: #fff; border: none; cursor: pointer; transition: 0.3s;" id="invite-btn" >Send
+            Invitation</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Get the modal
+    const modal = document.getElementById('inviteModal');
 
-<script>
-  // Get the modal
-  const modal = document.getElementById('inviteModal');
+    // Get the button that opens the modal
+    const btn = document.getElementById('openModalBtn');
 
-  // Get the button that opens the modal
-  const btn = document.getElementById('openModalBtn');
+    // Get the <span> element that closes the modal
+    const closeBtn = document.getElementsByClassName('close')[0];
 
-  // Get the <span> element that closes the modal
-  const closeBtn = document.getElementsByClassName('close')[0];
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+      modal.style.display = 'block';
+    };
 
-  // When the user clicks the button, open the modal
-  btn.onclick = function() {
-    modal.style.display = 'block';
-  };
-
-  // When the user clicks on <span> (x), close the modal
-  closeBtn.onclick = function() {
-    modal.style.display = 'none';
-  };
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target === modal) {
+    // When the user clicks on <span> (x), close the modal
+    closeBtn.onclick = function () {
       modal.style.display = 'none';
-    }
-  };
+    };
 
-  // Submit form handling
-  const form = document.getElementById('inviteForm');
-  form.addEventListener('submit', function(event) {
-    // Your submission logic here
-    event.preventDefault(); // Prevents the default form submission
-    // Example: You can fetch the values from the form and perform an action
-    const invitingEmail = document.getElementById('invitingEmail');
-    const projectName = document.getElementById('projectName');
-    formData = {
-      InvitingEmail: invitingEmail.value,
-      ProjectName: projectName.value
-    }
-    invitingEmail.value = ''
-    projectName.value = ''
-    // console.log('Inviting Email:', invitingEmail);
-    // console.log('Project Name:', projectName);
-    console.log(formData);
-    // Additional logic like sending data to a server can be added here
-    modal.style.display = 'none'; // Close the modal after submission (you may update this according to your implementation)
-  });
-</script>
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#invite-btn").on("click", function (e) {
+        // Get form data
+        e.preventDefault();
+        var invitee = $("#invitingEmail").val();
+        var project = $("#projectName").val();
 
+        // Prepare the data to be sent in the AJAX request
+        var formData = {
+          invitee: invitee,
+          project: project,
+        };
+        console.log(formData);
+
+        // Assuming you have already defined formData with the necessary data (username, number, password) earlier in your code.
+
+        $.ajax({
+          url: "/invite_form",
+          type: "POST",
+          data: formData, // Assuming formData is properly defined with the required form data.
+          success: function (response) {
+            // Handle the response from the server
+            console.log(response.status);
+            if (response.status === "success") {
+              // Registration successful
+              // Redirect to the home page (you might want to change this URL to match your actual home page URL)
+              window.location.href = "/"; // Assuming your home page URL is "/home"
+
+              // You can access the user data from response.data
+              console.log(response.data);
+            } else {
+              // Error occurred during registration
+              $("#LoginAlert").attr("style", "color:red");
+              $("#LoginAlert").text(response.message);
+            }
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            // Handle the error case if the request fails
+            console.log("AJAX Error:", textStatus, errorThrown);
+            $("#LoginAlert").attr("style", "color:red");
+            $("#LoginAlert").text("Error occurred during invitation.");
+          }
+        });
+
+      });
+    });
+  </script>
 </body>
+
 </html>

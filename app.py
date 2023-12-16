@@ -132,7 +132,7 @@ def login_form():
         # Execute the SELECT query
         cursor.execute(select_query, select_values)
         result = cursor.fetchone()
-
+        print(result)
         if result:
             return jsonify({"status": "success", "message": "Login successful!", "data": result})
 
@@ -191,6 +191,53 @@ def project_form():
         # Close the cursor and connection
         cursor.close()
         conn.close()
+
+@app.route('/invite_form', methods=['POST'])
+def invite_form():
+    invited = request.form['invitee']
+    projectName = request.form['project']
+    # Create a database connection
+ 
+    conn = mysql.connector.connect(**db_config)
+    cursor = None
+    try:
+        # Use a try-except block to handle any potential errors
+        # Create a cursor to interact with the database
+        cursor = conn.cursor()
+        # The parameter values
+        invitee = invited
+        project = projectName  # Hashed password, adjust accordingly
+        friendid_query = "SELECT id FROM users WHERE email = %s"
+        params = (invitee,)
+        cursor.execute(friendid_query, params)
+        friend_id = cursor.fetchall()
+        print(friend_id)
+        projectName_query = "SELECT p_id FROM projects WHERE p_name = %s"
+        p_params = (project,)
+        cursor.execute(projectName_query, p_params)
+        project_id = cursor.fetchall()
+        print(project_id)
+        # User does not exist
+        insert_query = "INSERT INTO friends (f_email, friend_id, project_id) VALUES (%s, %s)"
+        select_values = (invitee, friend_id, project_id)
+        cursor.execute(insert_query, select_values )
+        conn.commit()
+        select_query = "SELECT * FROM friends WHERE f_email = %s"
+        cursor.execute(select_query, params)
+        result = cursor.fetchall()
+        # print(result)
+        if result:
+            return jsonify({"status": "success", "message": "Invited sucessfully.","data":result})
+        else:
+            return jsonify({"status": "invalid", "message": "Could not invite the user."})
+    except Exception as e:
+        # Handle any exceptions that may occur during the database operation
+        return jsonify({"status": "error", "message": f"An error occurred: {e}"})
+    finally:
+        # Close the cursor and connection
+        cursor.close()
+        conn.close()    
+
 
 if __name__ == '__main__':
     app.run(debug=True)
