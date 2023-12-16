@@ -218,7 +218,7 @@ def invite_form():
         project_id = cursor.fetchall()
         print(project_id)
         # User does not exist
-        insert_query = "INSERT INTO friends (f_email, friend_id, project_id) VALUES (%s, %s)"
+        insert_query = "INSERT INTO friends (f_email, friend_id, project_id) VALUES (%s, %s, %s)"
         select_values = (invitee, friend_id, project_id)
         cursor.execute(insert_query, select_values )
         conn.commit()
